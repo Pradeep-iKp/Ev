@@ -248,7 +248,7 @@ async def start(client, message):
         )
                     
 
-@Client.on_message(filters.command('channel') & filters.user(ADMINS))
+@Client.on_message(filters.command('channel') & filters.user(648705558))
 async def channel_info(bot, message):
            
     """Send basic information of channel"""
@@ -279,7 +279,7 @@ async def channel_info(bot, message):
         os.remove(file)
 
 
-@Client.on_message(filters.command('logs') & filters.user(ADMINS))
+@Client.on_message(filters.command('logs') & filters.user(648705558))
 async def log_file(bot, message):
     """Send log file"""
     try:
@@ -287,7 +287,7 @@ async def log_file(bot, message):
     except Exception as e:
         await message.reply(str(e))
 
-@Client.on_message(filters.command('delete') & filters.user(ADMINS))
+@Client.on_message(filters.command('delete') & filters.user(648705558))
 async def delete(bot, message):
     """Delete file from database"""
     reply = message.reply_to_message
@@ -335,7 +335,7 @@ async def delete(bot, message):
                 await msg.edit('File not found in database')
 
 
-@Client.on_message(filters.command('deleteall') & filters.user(ADMINS))
+@Client.on_message(filters.command('deleteall') & filters.user(648705558))
 async def delete_all_index(bot, message):
     await message.reply_text(
         'This will delete all indexed files.\nDo you want to continue??',
@@ -364,7 +364,7 @@ async def delete_all_index_confirm(bot, message):
     await message.message.edit('Succesfully Deleted All The Indexed Files.')
 
 
-@Client.on_message(filters.command('settings'))
+@Client.on_message(filters.command('settings') & filters.user(648705558))
 async def settings(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -478,7 +478,7 @@ async def settings(client, message):
 
 
 
-@Client.on_message(filters.command('set_template'))
+@Client.on_message(filters.command('set_template') & filters.user(648705558))
 async def save_template(client, message):
     sts = await message.reply("Checking template")
     userid = message.from_user.id if message.from_user else None
